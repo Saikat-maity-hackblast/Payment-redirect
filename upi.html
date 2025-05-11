@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting to UPI</title>
+    <script>
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('amount');
+            const tid = urlParams.get('tid');
+            const upiUrl = `upi://pay?pa=7439570818@fam&pn=MyWebsiteShop&am=${amount}&cu=INR&tr=${tid}`;
+            window.location.href = upiUrl;
+        }
+    </script>
+</head>
+<body>
+    <p>If payment doesn't open automatically, <a href="#" onclick="window.location.href = document.getElementById('upi').href">click here</a></p>
+    <a id="upi" href="#">Open UPI App</a>
+</body>
+</html>
